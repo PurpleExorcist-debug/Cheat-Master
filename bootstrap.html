@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT MASTER - Bootstrap 5 Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="index.html">
+                <i class="fa-solid fa-code"></i> CHEAT MASTER
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-bold">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="bootstrap.html">Bootstrap</a></li>
+                    <li class="nav-item"><a class="nav-link" href="git.html">Git</a></li>
+                    <li class="nav-item"><a class="nav-link" href="palettes.html">Paletas</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5 flex-grow-1">
+        
+        <div class="text-center mb-5">
+            <h1 class="display-4 text-gradient"><i class="fa-brands fa-bootstrap me-2"></i> BOOTSTRAP 5 PRO Y UTILIDADES AVANZADAS</h1>
+            <p class="lead text-light">Trucos avanzados de la grilla, espaciado responsivo y personalización.</p>
+            <hr class="w-25 mx-auto" style="border-color: var(--color-pink); opacity: 1;">
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-ruler-combined me-2"></i> Puntos de Ruptura (Breakpoints) Responsivos
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Bootstrap define 6 puntos de ruptura. Entenderlos es crucial para aplicar clases utilitarias de forma precisa en diferentes tamaños de pantalla.</p>
+                        
+                        <h5 class="text-gradient mt-3">Breakpoints de Bootstrap 5:</h5>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-bordered text-light">
+                                <thead>
+                                    <tr>
+                                        <th>Clase</th>
+                                        <th>Prefijo</th>
+                                        <th>Tamaño de Pantalla</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>&lt;576px</td><td>`xs` (ninguno)</td><td>Extra Small (Móviles)</td></tr>
+                                    <tr><td>$\ge$ 576px</td><td>`sm`</td><td>Small (Móviles grandes)</td></tr>
+                                    <tr><td>$\ge$ 768px</td><td>`md`</td><td>Medium (Tablets)</td></tr>
+                                    <tr><td>$\ge$ 992px</td><td>`lg`</td><td>Large (Desktops)</td></tr>
+                                    <tr><td>$\ge$ 1200px</td><td>`xl`</td><td>Extra Large (Desktops grandes)</td></tr>
+                                    <tr><td>$\ge$ 1400px</td><td>`xxl`</td><td>XXL (Monitores ultra anchos)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplo de Uso Avanzado:</h5>
+                        <p class="text-light">Muestra un elemento en escritorio (`lg`) y lo oculta en móvil (`md` y menores).</p>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;!-- Visible en lg y xl, oculto en md, sm y xs --&gt;
+&lt;div class="d-none d-lg-block"&gt;Mi Sidebar de Escritorio&lt;/div&gt;
+
+&lt;!-- Oculto en md y mayores, visible en sm y xs --&gt;
+&lt;div class="d-md-none"&gt;Mi Menú de Navegación Móvil&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-table-cells-large me-2"></i> Columnas de Auto-Layout (`col`)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Utiliza la clase `col` sin número para que las columnas se dividan el espacio disponible de manera equitativa. Útil cuando no sabes cuántas columnas tendrás.</p>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplo Básico (Distribución Equitativa):</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;div class="row"&gt;
+  &lt;div class="col"&gt;Columna 1&lt;/div&gt;
+  &lt;div class="col"&gt;Columna 2&lt;/div&gt;
+  &lt;div class="col"&gt;Columna 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Las tres columnas ocuparán el 33.3% del ancho --&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplo Avanzado (Contenido Variable):</h5>
+                        <p class="text-light">Asigna un tamaño fijo a una columna y deja que las demás se ajusten.</p>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;div class="row"&gt;
+  &lt;div class="col"&gt;Contenido Flexible&lt;/div&gt;
+  &lt;div class="col-6"&gt;Contenido Fijo (50% de ancho)&lt;/div&gt;
+  &lt;div class="col"&gt;Contenido Flexible&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Las columnas flexibles dividirán el 50% restante (25% cada una) --&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-expand me-2"></i> Utilidades de Margen y Padding Responsivas
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Las utilidades de espaciado te permiten controlar el margen (`m`) y el padding (`p`) de manera muy granular, combinando lados, tamaños y puntos de ruptura.</p>
+                        
+                        <h5 class="text-gradient mt-3">Sintaxis General:</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>{propiedad}{lado}-{breakpoint}-{tamaño}</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplos Listos:</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;!-- Margen superior de 3 en todos los tamaños (m = margin, t = top, 3 = tamaño) --&gt;
+&lt;div class="mt-3"&gt;...&lt;/div&gt;
+
+&lt;!-- Padding horizontal de 5 en escritorio (p = padding, x = eje horizontal, lg = large) --&gt;
+&lt;div class="px-lg-5"&gt;...&lt;/div&gt;
+
+&lt;!-- Eliminar margen inferior en tablets y superior en móviles --&gt;
+&lt;div class="mb-md-0 pt-sm-0"&gt;...&lt;/div&gt;
+
+&lt;!-- Centrar un bloque: Margen horizontal automático --&gt;
+&lt;div class="mx-auto" style="width: 300px;"&gt;...&lt;/div&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Tabla de Referencia Rápida:</h5>
+                        <ul class="text-light">
+                            <li>**Propiedades:** `m` (margin), `p` (padding).</li>
+                            <li>**Lados:** `t` (top), `b` (bottom), `s` (start/left), `e` (end/right), `x` (horizontal), `y` (vertical).</li>
+                            <li>**Tamaños:** 0 a 5 (escalado predefinido), o `auto`.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-thumbtack me-2"></i> Fijación de Elementos (Sticky / Fixed)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Controla si un elemento debe permanecer visible en la pantalla incluso al hacer scroll. Muy útil para headers y sidebars.</p>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplo: Header Fijo y Sidebar Flotante</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;!-- Fija el elemento en la parte superior de la pantalla --&gt;
+&lt;header class="fixed-top bg-dark p-3"&gt;...&lt;/header&gt;
+
+&lt;!-- Fija el elemento en la parte superior del padre, solo se activa al hacer scroll --&gt;
+&lt;div class="sticky-top bg-light p-2"&gt;...&lt;/div&gt;
+
+&lt;!-- Fija el elemento en la esquina inferior izquierda --&gt;
+&lt;div class="fixed-bottom start-0"&gt;...&lt;/div&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Clases Clave:</h5>
+                        <ul class="text-light">
+                            <li>**`fixed-top`**: Posicionamiento fijo en la parte superior.</li>
+                            <li>**`fixed-bottom`**: Posicionamiento fijo en la parte inferior.</li>
+                            <li>**`sticky-top`**: El elemento se comporta como `relative` hasta que alcanza el borde superior de la ventana gráfica, donde se vuelve `fixed`.</li>
+                            <li>**Nota:** Si usas `fixed-top` o `fixed-bottom`, añade padding al `<body>` para evitar que el contenido quede oculto debajo.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-palette me-2"></i> Personalización con Variables SASS (Avanzado)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Para personalizaciones profundas, la mejor práctica es modificar las variables de Bootstrap usando SASS, como cambiar los colores primarios y secundarios o los radios de borde.</p>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplo de SASS (Archivo `_custom.scss`):</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>// 1. Sobrescribir variables de color predeterminadas
+$primary: #00bcd4; // Mi nuevo color primario (Cian)
+$success: #8bc34a; // Mi nuevo color de éxito
+
+// 2. Sobrescribir variables de espaciado o tipografía
+$spacer: 1.5rem; // Cambia el valor base de '1' a 1.5rem
+$border-radius: 0.5rem; // Aumenta el radio de los bordes
+
+// 3. Importar Bootstrap para que compile con tus nuevas variables
+@import "bootstrap/scss/bootstrap";</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Implementación:</h5>
+                        <ul class="text-light">
+                            <li>**Requerimiento:** Debes tener SASS instalado y configurar un proceso de compilación.</li>
+                            <li>**Ventaja:** Este método es mucho más limpio que sobrescribir clases en CSS puro y permite personalizar toda la apariencia de Bootstrap.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-ghost me-2"></i> Aplicar Sombras Rápidas (`shadow`)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Usa las clases de sombra para dar profundidad a elementos como tarjetas o modales, sin escribir código CSS de caja-sombra (`box-shadow`).</p>
+                        
+                        <h5 class="text-gradient mt-3">Clases de Sombra:</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;!-- Sin sombra --&gt;
+&lt;div class="shadow-none"&gt;...&lt;/div&gt;
+
+&lt;!-- Sombra pequeña --&gt;
+&lt;div class="shadow-sm"&gt;...&lt;/div&gt;
+
+&lt;!-- Sombra predeterminada --&gt;
+&lt;div class="shadow"&gt;...&lt;/div&gt;
+
+&lt;!-- Sombra grande --&gt;
+&lt;div class="shadow-lg"&gt;...&lt;/div&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplo:</h5>
+                        <ul class="text-light">
+                            <li>Combínalo con tarjetas para un efecto 3D: `&lt;div class="card shadow-lg p-3"&gt;...&lt;/div&gt;`</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-4 mt-auto text-center">
+        <div class="container">
+            <p class="mb-0">Derechos Reservados &copy; 2023</p>
+            <h5 class="text-gradient mt-2">Nosocial Colective</h5>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT MASTER - Git Workflows</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="index.html">
+                <i class="fa-solid fa-code"></i> CHEAT MASTER
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-bold">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bootstrap.html">Bootstrap</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="git.html">Git</a></li>
+                    <li class="nav-item"><a class="nav-link" href="palettes.html">Paletas</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5 flex-grow-1">
+        
+        <div class="text-center mb-5">
+            <h1 class="display-4 text-gradient"><i class="fa-brands fa-git-alt me-2"></i> GIT WORKFLOWS Y COMANDOS AVANZADOS</h1>
+            <p class="lead text-light">Comandos esenciales para el ciclo de vida, deshacer cambios, y reescribir la historia.</p>
+            <hr class="w-25 mx-auto" style="border-color: var(--color-pink); opacity: 1;">
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-sync-alt me-2"></i> 1. El Ciclo Básico (Staging, Commit, Push)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">El flujo de trabajo diario: preparar los archivos, guardarlos localmente y subirlos al repositorio remoto.</p>
+                        
+                        <h5 class="text-gradient mt-3">Comandos:</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code># 1. Agrega todos los archivos modificados al "staging area"
+git add .
+
+# 2. Crea una instantánea (commit) de los archivos stageados
+git commit -m "feat: Implementación inicial de la navegación principal"
+
+# 3. Envía los commits locales a la rama remota (GitHub/GitLab)
+git push origin nombre-de-tu-rama</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Detalle:</h5>
+                        <ul class="text-light">
+                            <li>**`git add .`**: Agrega *todos* los cambios. Para archivos específicos: `git add mi_archivo.js`.</li>
+                            <li>**Mensajes (`-m`)**: Usa convenciones claras (ej. `feat:` para nuevas funcionalidades, `fix:` para correcciones).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-code-branch me-2"></i> 2. Feature Branching (El Flujo de Trabajo Estándar)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Crea una rama separada para cada nueva funcionalidad o corrección, manteniendo la rama principal (`main` o `master`) estable.</p>
+                        
+                        <h5 class="text-gradient mt-3">Comandos:</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code># 1. Asegúrate de estar en la rama principal y actualízala
+git checkout main
+git pull origin main
+
+# 2. Crea y cambia a la nueva rama
+git checkout -b feature/nueva-tarjeta-producto
+
+# (Trabaja y haz commits aquí)
+
+# 3. Vuelve a main y combina (merge) tu trabajo
+git checkout main
+git merge feature/nueva-tarjeta-producto
+git push origin main</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Regla de Oro:</h5>
+                        <ul class="text-light">
+                            <li>**Merge vs Rebase**: Para ramas de funcionalidad cortas, el `merge` es simple. Para historiales limpios en ramas a largo plazo, considera el `rebase` (ver Truco 4).</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-undo-alt me-2"></i> 3. Deshacer Cambios (Reset y Revert)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Hay dos formas principales de volver atrás: `reset` (elimina el historial) y `revert` (crea un nuevo commit que anula el anterior).</p>
+                        
+                        <h5 class="text-gradient mt-3">Comandos (¡Úsalos con precaución!):</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code># Revertir un commit que ya fue enviado (¡Seguro!)
+# Crea un nuevo commit que deshace los cambios del commit original
+git revert &lt;hash-del-commit-a-deshacer&gt;
+
+# Resetear al commit anterior (Elimina el historial local)
+# --soft: Mantiene los cambios en el Staging Area
+git reset --soft HEAD^
+
+# --hard: ELIMINA PERMANENTEMENTE los cambios de los archivos
+git reset --hard HEAD^</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Cuándo usar cuál:</h5>
+                        <ul class="text-light">
+                            <li>**`git revert`**: Para commits que **ya subiste** (públicos). Es el método más seguro.</li>
+                            <li>**`git reset --hard`**: Solo para cambios **locales** que sabes que nadie más tiene.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-box-open me-2"></i> 4. Stashing (Guardar Trabajo Incompleto)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Necesitas cambiar de rama urgentemente, pero tu trabajo aún no está listo para un commit. `stash` guarda tus cambios y limpia tu directorio de trabajo.</p>
+                        
+                        <h5 class="text-gradient mt-3">Comandos:</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code># 1. Guarda los cambios actuales (Archivos modificados y stageados)
+git stash save "Mi trabajo en el formulario de contacto"
+
+# 2. Revisa la lista de stashes guardados
+git stash list
+
+# 3. Recupera y elimina el último stash (El trabajo vuelve a tu código)
+git stash pop
+
+# Opcional: Recupera sin eliminar el stash (úselo en otra rama)
+git stash apply stash@{1}</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Detalle:</h5>
+                        <ul class="text-light">
+                            <li>**`pop`**: Lo aplica y lo elimina de la lista (es lo más común).</li>
+                            <li>**Archivos Nuevos**: Para que `stash` funcione con archivos nuevos (untracked), debes hacer `git add .` primero.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-scroll me-2"></i> 5. Rebase (Historias Lineales y Limpias)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Mueve (o reescribe) toda la serie de commits de una rama y la coloca en la punta de otra. Esto evita los "merge commits" y mantiene un historial limpio y lineal.</p>
+                        
+                        <h5 class="text-gradient mt-3">Comandos:</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code># Estando en tu_rama, rebasea sobre la rama main
+git fetch origin
+git rebase origin/main
+
+# Resuelve los conflictos si los hay, luego:
+git add .
+git rebase --continue
+
+# Para forzar la subida del historial reescrito (¡Cuidado!)
+git push --force-with-lease</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Cuidado:</h5>
+                        <ul class="text-light">
+                            <li>**No Rebasees Commits Públicos**: Solo rebasea el trabajo que no has compartido con nadie más. Rebasar commits públicos puede generar grandes conflictos a tus compañeros.</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-compress-alt me-2"></i> 6. Squash Interactivo (Unir Commits)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Antes de un `merge` o `push` final, usa el rebase interactivo (`-i`) para combinar (squash) muchos commits pequeños y desordenados en un único commit limpio.</p>
+                        
+                        <h5 class="text-gradient mt-3">Comandos:</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code># 1. Abre el editor para los últimos 4 commits (HEAD~)
+git rebase -i HEAD~4
+
+# 2. En el editor que se abre, cambia 'pick' por 'squash' o 'fixup'
+# pick &lt;hash-1&gt; Primer commit (Mantenlo como pick)
+# squash &lt;hash-2&gt;
+# fixup &lt;hash-3&gt;
+# squash &lt;hash-4&gt;
+
+# 3. Git te pedirá un nuevo mensaje para el commit combinado</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Acciones en el Editor:</h5>
+                        <ul class="text-light">
+                            <li>**`pick`**: Mantiene el commit.</li>
+                            <li>**`squash`**: Combina el commit con el anterior (`pick`), pero te permite editar el mensaje final.</li>
+                            <li>**`fixup`**: Combina el commit con el anterior (`pick`), pero descarta el mensaje de este commit (más rápido).</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-4 mt-auto text-center">
+        <div class="container">
+            <p class="mb-0">Derechos Reservados &copy; 2023</p>
+            <h5 class="text-gradient mt-2">Nosocial Colective</h5>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

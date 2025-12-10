@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT MASTER - Paletas de Colores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .color-swatch {
+            width: 100%;
+            height: 60px;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.8); /* Texto por defecto */
+        }
+        .color-swatch.light-text { color: #212529; } /* Para swatches claros */
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="index.html">
+                <i class="fa-solid fa-code"></i> CHEAT MASTER
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-bold">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bootstrap.html">Bootstrap</a></li>
+                    <li class="nav-item"><a class="nav-link" href="git.html">Git</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="palettes.html">Paletas</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5 flex-grow-1">
+        
+        <div class="text-center mb-5">
+            <h1 class="display-4 text-gradient"><i class="fa-solid fa-palette me-2"></i> PALETAS DE COLORES PARA RUBROS</h1>
+            <p class="lead text-light">Colección de 15 paletas organizadas por sector, listas para usar con variables CSS.</p>
+            <hr class="w-25 mx-auto" style="border-color: var(--color-pink); opacity: 1;">
+        </div>
+
+        <h2 class="text-gradient mb-4 mt-5"><i class="fa-solid fa-shield-alt me-2"></i> SEGURIDAD / INDUSTRIAL</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #192A56; color: #FFFFFF;">Ciberseguridad Oscura</div>
+                    <div class="card-body">
+                        <p class="text-light">Diseño robusto, contrastes altos, ideal para interfaces de monitoreo o defensa digital.</p>
+                        <div class="color-swatch" style="background-color: #192A56;">#192A56 (Fondo)</div>
+                        <div class="color-swatch" style="background-color: #27AE60;">#27AE60 (Acento Principal)</div>
+                        <div class="color-swatch" style="background-color: #F39C12;" >#F39C12 (Alerta)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--bg-principal: #192A56;
+--color-acento: #27AE60;
+--color-alerta: #F39C12;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #4B6584; color: #FFFFFF;">Vigilancia Urbana</div>
+                    <div class="card-body">
+                        <p class="text-light">Tonos neutros y fríos, inspirados en el hormigón y la tecnología de vigilancia.</p>
+                        <div class="color-swatch" style="background-color: #4B6584;">#4B6584 (Principal)</div>
+                        <div class="color-swatch" style="background-color: #F0932B;">#F0932B (Énfasis/CTA)</div>
+                        <div class="color-swatch light-text" style="background-color: #DCDDE1;">#DCDDE1 (Fondo Ligero)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-principal: #4B6584;
+--color-cta: #F0932B;
+--bg-claro: #DCDDE1;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #474747; color: #FFFFFF;">Militar Táctica</div>
+                    <div class="card-body">
+                        <p class="text-light">Tonos terrosos y apagados, serios y resistentes, para equipos o servicios especializados.</p>
+                        <div class="color-swatch" style="background-color: #474747;">#474747 (Principal)</div>
+                        <div class="color-swatch" style="background-color: #888E5E;">#888E5E (Olive)</div>
+                        <div class="color-swatch light-text" style="background-color: #D1A54F;">#D1A54F (Khaki)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--bg-fuerte: #474747;
+--color-secundario: #888E5E;
+--color-terciario: #D1A54F;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-gradient mb-4 mt-5"><i class="fa-solid fa-laptop-code me-2"></i> INFORMÁTICA / TECNOLOGÍA</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #007BFF; color: #FFFFFF;">Tecnología Fría</div>
+                    <div class="card-body">
+                        <p class="text-light">Inspirada en Bootstrap, combina azul de confianza y cian moderno, muy versátil.</p>
+                        <div class="color-swatch" style="background-color: #007BFF;">#007BFF (Principal)</div>
+                        <div class="color-swatch" style="background-color: #17A2B8;">#17A2B8 (Cian Acento)</div>
+                        <div class="color-swatch light-text" style="background-color: #F8F9FA;">#F8F9FA (Fondo Base)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-blue: #007BFF;
+--color-cyan: #17A2B8;
+--bg-light: #F8F9FA;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #212529; color: #FFFFFF;">Código Oscuro</div>
+                    <div class="card-body">
+                        <p class="text-light">Diseño de "modo oscuro" con un toque de púrpura neón para el código o la interactividad.</p>
+                        <div class="color-swatch" style="background-color: #212529;">#212529 (Fondo Oscuro)</div>
+                        <div class="color-swatch" style="background-color: #9A34FF;">#9A34FF (Acento Neón)</div>
+                        <div class="color-swatch light-text" style="background-color: #FFFFFF; color: #212529;">#FFFFFF (Texto)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--bg-dark: #212529;
+--color-purple: #9A34FF;
+--color-text: #FFFFFF;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #008080; color: #FFFFFF;">Diseño Limpio (Teal)</div>
+                    <div class="card-body">
+                        <p class="text-light">Paleta minimalista y moderna que utiliza el verde azulado (Teal) como color primario.</p>
+                        <div class="color-swatch" style="background-color: #008080;">#008080 (Teal Principal)</div>
+                        <div class="color-swatch light-text" style="background-color: #ADD8E6;">#ADD8E6 (Detalle Ligero)</div>
+                        <div class="color-swatch" style="background-color: #6C757D;">#6C757D (Gris Subtil)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-teal: #008080;
+--color-detalle: #ADD8E6;
+--color-gris: #6C757D;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-gradient mb-4 mt-5"><i class="fa-solid fa-money-check-alt me-2"></i> BANCARIA / FINANCIERA</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #003366; color: #FFFFFF;">Confianza Corporativa</div>
+                    <div class="card-body">
+                        <p class="text-light">Azul profundo para generar confianza y un toque dorado para el valor y la inversión.</p>
+                        <div class="color-swatch" style="background-color: #003366;">#003366 (Principal)</div>
+                        <div class="color-swatch light-text" style="background-color: #FFC107;">#FFC107 (Oro/Éxito)</div>
+                        <div class="color-swatch light-text" style="background-color: #CED4DA;">#CED4DA (Fondo Neutro)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-navy: #003366;
+--color-gold: #FFC107;
+--bg-neutro: #CED4DA;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #28A745; color: #FFFFFF;">Fintech Moderna</div>
+                    <div class="card-body">
+                        <p class="text-light">Verde que simboliza el crecimiento, combinado con gris oscuro para un aspecto profesional.</p>
+                        <div class="color-swatch" style="background-color: #28A745;">#28A745 (Crecimiento)</div>
+                        <div class="color-swatch" style="background-color: #343A40;">#343A40 (Oscuro)</div>
+                        <div class="color-swatch light-text" style="background-color: #F0F4F8;">#F0F4F8 (Fondo Limpio)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-exito: #28A745;
+--bg-secundario: #343A40;
+--bg-claro: #F0F4F8;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #800000; color: #FFFFFF;">Lujo y Patrimonio</div>
+                    <div class="card-body">
+                        <p class="text-light">Rojo vino y tonos crema, utilizados para servicios premium o gestión de patrimonio.</p>
+                        <div class="color-swatch" style="background-color: #800000;">#800000 (Maroon)</div>
+                        <div class="color-swatch light-text" style="background-color: #FAF0E6; color: #800000;">#FAF0E6 (Crema)</div>
+                        <div class="color-swatch light-text" style="background-color: #CD7F32; color: #FFFFFF;">#CD7F32 (Bronce)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-maroon: #800000;
+--bg-cream: #FAF0E6;
+--color-bronze: #CD7F32;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-gradient mb-4 mt-5"><i class="fa-solid fa-heartbeat me-2"></i> SALUD / BIENESTAR</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #20C997; color: #FFFFFF;">Clínica Limpia</div>
+                    <div class="card-body">
+                        <p class="text-light">Turquesa y blanco que evocan limpieza, calma y profesionalismo médico.</p>
+                        <div class="color-swatch" style="background-color: #20C997;">#20C997 (Turquesa)</div>
+                        <div class="color-swatch light-text" style="background-color: #FFFFFF; color: #212529;">#FFFFFF (Fondo)</div>
+                        <div class="color-swatch" style="background-color: #6C757D;">#6C757D (Texto Neutro)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-turquesa: #20C997;
+--bg-white: #FFFFFF;
+--color-neutro: #6C757D;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #4CAF50; color: #FFFFFF;">Naturaleza y Bienestar</div>
+                    <div class="card-body">
+                        <p class="text-light">Verde y marrón tierra, perfectos para herbolarios, yoga o productos orgánicos.</p>
+                        <div class="color-swatch" style="background-color: #4CAF50;">#4CAF50 (Verde Musgo)</div>
+                        <div class="color-swatch" style="background-color: #A0522D;">#A0522D (Marrón Tierra)</div>
+                        <div class="color-swatch light-text" style="background-color: #F5F5DC; color: #A0522D;">#F5F5DC (Beige)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-natural: #4CAF50;
+--color-tierra: #A0522D;
+--bg-beige: #F5F5DC;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #FF6B6B; color: #FFFFFF;">Infantil/Pediátrico</div>
+                    <div class="card-body">
+                        <p class="text-light">Colores brillantes, suaves y alegres, ideales para un entorno amigable y positivo.</p>
+                        <div class="color-swatch" style="background-color: #FF6B6B;">#FF6B6B (Coral)</div>
+                        <div class="color-swatch" style="background-color: #4ECDC4;">#4ECDC4 (Cian Suave)</div>
+                        <div class="color-swatch light-text" style="background-color: #FFE66D; color: #FF6B6B;">#FFE66D (Amarillo Pastel)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-coral: #FF6B6B;
+--color-suave: #4ECDC4;
+--color-alegre: #FFE66D;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-gradient mb-4 mt-5"><i class="fa-solid fa-utensils me-2"></i> GASTRONOMÍA / ALIMENTOS</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #6F4E37; color: #FFFFFF;">Cafetería de Especialidad</div>
+                    <div class="card-body">
+                        <p class="text-light">Tonos de café, marrón y crema que evocan calidez y aroma a tostado.</p>
+                        <div class="color-swatch" style="background-color: #6F4E37;">#6F4E37 (Café Principal)</div>
+                        <div class="color-swatch light-text" style="background-color: #FFF8E1; color: #6F4E37;">#FFF8E1 (Crema)</div>
+                        <div class="color-swatch" style="background-color: #343A40;">#343A40 (Charcoal)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-coffee: #6F4E37;
+--bg-cream: #FFF8E1;
+--bg-dark: #343A40;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #E74C3C; color: #FFFFFF;">Comida Rápida Clásica</div>
+                    <div class="card-body">
+                        <p class="text-light">Los colores más utilizados para despertar el apetito y la acción (Red/Yellow).</p>
+                        <div class="color-swatch" style="background-color: #E74C3C;">#E74C3C (Rojo)</div>
+                        <div class="color-swatch light-text" style="background-color: #F1C40F; color: #E74C3C;">#F1C40F (Amarillo)</div>
+                        <div class="color-swatch light-text" style="background-color: #FFFFFF; color: #E74C3C;">#FFFFFF (Fondo)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-rojo: #E74C3C;
+--color-apetito: #F1C40F;
+--bg-white: #FFFFFF;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header fw-bold" style="background-color: #196F3D; color: #FFFFFF;">Orgánico / Granja</div>
+                    <div class="card-body">
+                        <p class="text-light">Verde oscuro que evoca frescura, productos naturales y sostenibilidad.</p>
+                        <div class="color-swatch" style="background-color: #196F3D;">#196F3D (Bosque)</div>
+                        <div class="color-swatch" style="background-color: #964B00;">#964B00 (Marrón Profundo)</div>
+                        <div class="color-swatch light-text" style="background-color: #F4F6F0; color: #196F3D;">#F4F6F0 (Crema Suave)</div>
+                        <pre class="p-2 text-white rounded shadow-inner mt-3"><code style="font-size: 0.8rem;">--color-green: #196F3D;
+--color-brown: #964B00;
+--bg-organico: #F4F6F0;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-4 mt-auto text-center">
+        <div class="container">
+            <p class="mb-0">Derechos Reservados &copy; 2023</p>
+            <h5 class="text-gradient mt-2">Nosocial Colective</h5>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT MASTER - HTML Avanzado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="index.html">
+                <i class="fa-solid fa-code"></i> CHEAT MASTER
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-bold">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="html.html">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bootstrap.html">Bootstrap</a></li>
+                    <li class="nav-item"><a class="nav-link" href="git.html">Git</a></li>
+                    <li class="nav-item"><a class="nav-link" href="palettes.html">Paletas</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5 flex-grow-1">
+        
+        <div class="text-center mb-5">
+            <h1 class="display-4 text-gradient"><i class="fa-brands fa-html5 me-2"></i> HTML 5 AVANZADO Y FUNDAMENTOS</h1>
+            <p class="lead text-light">Fundamentos esenciales y trucos para la estructura semántica y la accesibilidad.</p>
+            <hr class="w-25 mx-auto" style="border-color: var(--color-pink); opacity: 1;">
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-code me-2"></i> Estructura Mínima de un Documento HTML5
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">La base de todo documento web. Es el punto de partida para cualquier proyecto y define las secciones principales (`head` y `body`).</p>
+                        
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mi Título Aquí&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Contenido visible para el usuario --&gt;
+    &lt;h1&gt;Hola Mundo&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Etiquetas Clave:</h5>
+                        <ul class="text-light">
+                            <li>**&lt;!DOCTYPE html&gt;**: Define el documento como HTML5.</li>
+                            <li>**&lt;html lang="es"&gt;**: Contenedor principal. El atributo `lang` es crucial para la accesibilidad (lector de pantalla).</li>
+                            <li>**&lt;head&gt;**: Contiene metadatos (información no visible).</li>
+                            <li>**&lt;meta charset="UTF-8"&gt;**: Soporte para la mayoría de los caracteres, incluyendo acentos.</li>
+                            <li>**&lt;meta name="viewport"&gt;**: Esencial para el diseño responsivo (móviles).</li>
+                            <li>**&lt;body&gt;**: Contiene todo el contenido visible de la página.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-brands fa-css3-alt me-2"></i> Cómo Vincular CSS Externo
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">La mejor práctica es vincular el CSS externamente en el `<head>` para que los estilos se carguen y apliquen antes de que el navegador muestre el contenido, evitando el parpadeo de contenido sin estilo (FOUC).</p>
+                        
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;...&lt;/title&gt;
+    
+    &lt;link rel="stylesheet" href="styles/mi-estilo.css"&gt;
+    
+    &lt;link rel="stylesheet" href="styles/componentes.css"&gt;
+
+&lt;/head&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Atributos Clave:</h5>
+                        <ul class="text-light">
+                            <li>**&lt;link&gt;**: La etiqueta utilizada para vincular recursos externos.</li>
+                            <li>**rel="stylesheet"**: Define la relación: este enlace es una hoja de estilos.</li>
+                            <li>**href="..."**: La ruta donde se encuentra tu archivo CSS (puede ser relativa o absoluta).</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-image me-2"></i> Imágenes Responsivas con <code style="color: var(--color-cyan);">&lt;picture&gt;</code>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Permite al navegador cargar la imagen más optimizada según el tamaño de la pantalla o el formato soportado, mejorando la performance.</p>
+                        
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;picture&gt;
+  &lt;source srcset="imagen-grande.webp" media="(min-width: 800px)" type="image/webp"&gt;
+  &lt;source srcset="imagen-pequena.jpg" type="image/jpeg"&gt;
+  &lt;img src="imagen-default.jpg" alt="Descripción de la imagen" class="img-fluid"&gt;
+&lt;/picture&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Etiquetas Clave:</h5>
+                        <ul class="text-light">
+                            <li>**&lt;picture&gt;**: Contenedor que permite definir múltiples versiones de una imagen.</li>
+                            <li>**&lt;source&gt;**: Define la URL de la imagen (`srcset`), la condición para usarla (`media`), y el tipo de archivo (`type`).</li>
+                            <li>**&lt;img&gt;**: Es el *fallback* obligatorio; se usa si ninguna &lt;source&gt; coincide o es soportada.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-bolt me-2"></i> Carga Asíncrona de Scripts
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Evita que la carga de archivos JavaScript pesados bloquee el renderizado de la página (el usuario verá el contenido más rápido).</p>
+                        
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;script src="analiticas.js" async&gt;&lt;/script&gt;
+&lt;script src="interactividad.js" defer&gt;&lt;/script&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Atributos Clave:</h5>
+                        <ul class="text-light">
+                            <li>**async**: Se carga y ejecuta tan pronto como esté listo. Ideal para scripts independientes.</li>
+                            <li>**defer**: Se carga en paralelo y se ejecuta después de que el HTML haya sido completamente parseado. Ideal para scripts que manipulan el DOM.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-file-lines me-2"></i> Contenido Distribuible con <code style="color: var(--color-cyan);">&lt;article&gt;</code>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Se usa para contenido que es completo e independiente (blog, comentario, producto). Si se saca de la página, sigue teniendo sentido.</p>
+                        
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;article class="post-blog"&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Título del Post&lt;/h2&gt;
+    &lt;p&gt;Publicado por: &lt;time datetime="2023-10-26"&gt;26 Oct 2023&lt;/time&gt;&lt;/p&gt;
+  &lt;/header&gt;
+  &lt;p&gt;Contenido principal del artículo...&lt;/p&gt;
+  &lt;footer&gt;
+    &lt;p&gt;&lt;a href="#comments"&gt;Ver 5 comentarios&lt;/a&gt;&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Etiquetas Clave:</h5>
+                        <ul class="text-light">
+                            <li>**&lt;article&gt;**: Contenedor para contenido autosuficiente.</li>
+                            <li>**&lt;time&gt;**: Muestra una fecha/hora legible y una fecha en formato máquina (atributo `datetime`).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-universal-access me-2"></i> Notificaciones de Accesibilidad con `aria-live`
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Informa a los lectores de pantalla sobre cambios importantes o errores en la página (ej. un mensaje de éxito/error) sin refrescar la página.</p>
+                        
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;div role="status" aria-live="polite" class="visually-hidden"&gt;
+  El formulario se ha enviado correctamente.
+&lt;/div&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Atributos Clave:</h5>
+                        <ul class="text-light">
+                            <li>**aria-live="polite"**: Indica que los cambios en este elemento deben ser anunciados por el lector de pantalla sin interrumpir al usuario.</li>
+                            <li>**role="status"**: Semánticamente identifica el elemento como un contenedor de mensajes de estado.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-list me-2"></i> Listas de Definición (<code style="color: var(--color-cyan);">&lt;dl&gt;</code>)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Perfecto para mostrar pares de nombres y valores (metadata, glosarios, preguntas frecuentes).</p>
+                        
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;dl&gt;
+  &lt;dt&gt;Framework&lt;/dt&gt;
+  &lt;dd&gt;Bootstrap 5&lt;/dd&gt;
+  
+  &lt;dt&gt;Colores&lt;/dt&gt;
+  &lt;dd&gt;Futuristic Palette (Dark Mode)&lt;/dd&gt;
+  
+  &lt;dt&gt;Tipografía&lt;/dt&gt;
+  &lt;dd&gt;Nunito (General) / Fira Code (Código)&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Etiquetas Clave:</h5>
+                        <ul class="text-light">
+                            <li>**&lt;dl&gt;**: Contenedor principal de la lista de definiciones.</li>
+                            <li>**&lt;dt&gt;**: Define el término.</li>
+                            <li>**&lt;dd&gt;**: Define la descripción/valor.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-check-to-slot me-2"></i> Validación de Entrada con `pattern`
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Usa expresiones regulares para validar automáticamente el formato de un campo antes de enviar el formulario, sin JavaScript.</p>
+                        
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;input 
+  type="text" 
+  name="zip-code" 
+  required 
+  pattern="[0-9]{5}" 
+  title="El código postal debe tener 5 dígitos (0-9)."&gt;
+
+&lt;input 
+  type="text" 
+  name="username" 
+  pattern="[a-zA-Z0-9]{3,15}"
+  title="Solo letras y números, de 3 a 15 caracteres."&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Atributos Clave:</h5>
+                        <ul class="text-light">
+                            <li>**pattern**: Recibe una expresión regular.</li>
+                            <li>**title**: El mensaje de error que se muestra al usuario si el patrón no se cumple.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-share-nodes me-2"></i> Open Graph (OG) Metatags
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Define cómo se ve tu enlace cuando se comparte en redes sociales (Facebook, LinkedIn, WhatsApp). Es esencial para el marketing.</p>
+                        
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;meta property="og:title" content="CHEAT MASTER: HTML Avanzado"&gt;
+&lt;meta property="og:description" content="Tu arsenal de trucos de código HTML semántico y performance."&gt;
+&lt;meta property="og:image" content="https://tudominio.com/img/html-share.jpg"&gt;
+&lt;meta property="og:url" content="https://tudominio.com/html.html"&gt;
+&lt;meta property="og:type" content="website"&gt;
+    
+&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:site" content="@tuusuario"&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Atributos Clave:</h5>
+                        <ul class="text-light">
+                            <li>**property="og:..."**: Prefijo estándar para Open Graph (OG).</li>
+                            <li>**og:image**: La URL absoluta de la imagen que se mostrará.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-clone me-2"></i> Plantillas Reutilizables con <code style="color: var(--color-cyan);">&lt;template&gt;</code>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Define un fragmento de HTML que no se renderiza en la página inicialmente, pero puede ser clonado e inyectado con JavaScript posteriormente.</p>
+                        
+                        <pre class="p-3 text-white rounded shadow-inner"><code>&lt;template id="plantilla-producto"&gt;
+  &lt;div class="card-producto"&gt;
+    &lt;h3 class="nombre"&gt;&lt;/h3&gt;
+    &lt;p class="precio"&gt;&lt;/p&gt;
+    &lt;button&gt;Agregar&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Etiquetas Clave:</h5>
+                        <ul class="text-light">
+                            <li>**&lt;template&gt;**: Contenedor para código HTML que se guarda como borrador.</li>
+                            <li>**id**: Esencial para que JavaScript pueda acceder a la plantilla.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-4 mt-auto text-center">
+        <div class="container">
+            <p class="mb-0">Derechos Reservados &copy; 2023</p>
+            <h5 class="text-gradient mt-2">Nosocial Colective</h5>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

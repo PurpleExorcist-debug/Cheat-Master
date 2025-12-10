@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT MASTER - CSS Maestro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="index.html">
+                <i class="fa-solid fa-code"></i> CHEAT MASTER
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-bold">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="css.html">CSS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bootstrap.html">Bootstrap</a></li>
+                    <li class="nav-item"><a class="nav-link" href="git.html">Git</a></li>
+                    <li class="nav-item"><a class="nav-link" href="palettes.html">Paletas</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5 flex-grow-1">
+        
+        <div class="text-center mb-5">
+            <h1 class="display-4 text-gradient"><i class="fa-brands fa-css3-alt me-2"></i> CSS MAESTRO Y TRUCOS MODERNOS</h1>
+            <p class="lead text-light">Aprende Flexbox, Grid, variables CSS y funciones de diseño fluido.</p>
+            <hr class="w-25 mx-auto" style="border-color: var(--color-pink); opacity: 1;">
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-cogs me-2"></i> Variables CSS (Propiedades Personalizadas)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Permiten definir valores que se pueden reutilizar en todo el CSS. Son cruciales para mantener la consistencia y cambiar temas fácilmente.</p>
+                        
+                        <h5 class="text-gradient mt-3">Declaración y Uso (en tu `styles.css`):</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>:root {
+  /* Declaración global en la raíz */
+  --color-principal: #007bff;
+  --espacio-lg: 3rem;
+}
+
+.elemento {
+  /* Uso de la variable */
+  background-color: var(--color-principal);
+  padding: var(--espacio-lg);
+}</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Uso:</h5>
+                        <ul class="text-light">
+                            <li>**Declaración:** Siempre con doble guion inicial (`--nombre`).</li>
+                            <li>**Acceso:** Con la función `var(--nombre)`.</li>
+                            <li>**Ventaja:** Permiten cambiar el valor con JavaScript o Media Queries.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-arrows-alt-h me-2"></i> Flexbox: Alineación en una Dimensión
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Ideal para alinear ítems a lo largo de un eje (fila o columna) y distribuir espacio de manera eficiente, especialmente en componentes pequeños.</p>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplo: Centrar Contenido Vertical y Horizontalmente</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>.contenedor-centrado {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;    /* Centrado vertical */
+  height: 100vh;
+}</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Propiedades Clave:</h5>
+                        <ul class="text-light">
+                            <li>**`display: flex;`**: Convierte el elemento en un contenedor flexible.</li>
+                            <li>**`justify-content`**: Controla la distribución a lo largo del eje principal.</li>
+                            <li>**`align-items`**: Controla la alineación a lo largo del eje secundario.</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-th-large me-2"></i> Grid: Maquetación en Dos Dimensiones
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">El sistema definitivo para crear estructuras complejas de dos dimensiones (filas y columnas), perfecto para el layout principal de una página web.</p>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplo: Sidebar Fijo y Contenido Flexible</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>.layout-pagina {
+  display: grid;
+  /* Define 2 columnas: 250px fijo y el resto del espacio (1fr) */
+  grid-template-columns: 250px 1fr;
+  /* Nombra las áreas para mejor claridad */
+  grid-template-areas: "sidebar contenido";
+}
+
+.menu-lateral {
+  grid-area: sidebar;
+}
+.contenido-principal {
+  grid-area: contenido;
+}</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Unidades Clave:</h5>
+                        <ul class="text-light">
+                            <li>**`display: grid;`**: Convierte el elemento en un contenedor de cuadrícula.</li>
+                            <li>**`grid-template-columns` / `rows`**: Define la estructura de la cuadrícula.</li>
+                            <li>**`fr` (Fractional Unit)**: Asigna una porción fraccional del espacio disponible, ideal para diseño responsivo.</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-ruler-horizontal me-2"></i> Diseño Fluid-Type con `clamp()`
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Asegura que el tamaño de la fuente (u otras propiedades) se mantenga entre un mínimo y un máximo, escalando suavemente en función del tamaño de la ventana (Viewport).</p>
+                        
+                        <h5 class="text-gradient mt-3">Uso:</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>h1 {
+  /* Tres valores: Mínimo, Preferido (fluido), Máximo */
+  /* El tamaño de la fuente irá entre 2rem y 5rem. */
+  font-size: clamp(2rem, 10vw + 1rem, 5rem);
+}
+
+.caja {
+  /* También útil para padding o márgenes */
+  padding: clamp(1rem, 5vw, 3rem);
+}</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Sintaxis:</h5>
+                        <ul class="text-light">
+                            <li>**`clamp(Mínimo, Valor_Preferido, Máximo)`**</li>
+                            <li>**`Valor_Preferido`**: Usa unidades relativas como `vw` (Viewport Width) para el escalado.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-filter me-2"></i> Selector de Negación `:not()`
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Aplica estilos a todos los elementos excepto al que se especifica. Ideal para reglas de espaciado o bordes, evitando tener que anular estilos en el último elemento.</p>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplo: Separador entre elementos (menos el último)</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>/* Aplica un margin-right a todos los .item */
+/* EXCEPTO al último hijo */
+.lista-items .item:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+/* Opcional: A todos los elementos .post EXCEPTO a los .destacado */
+.post:not(.destacado) {
+  opacity: 0.8;
+}</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Uso:</h5>
+                        <ul class="text-light">
+                            <li>**`:not(selector)`**: Invierte la selección. Funciona con clases, IDs y otros selectores pseudo.</li>
+                            <li>**Mejor Práctica:** Ayuda a limpiar el CSS eliminando reglas de anulación como `*:last-child { margin-bottom: 0; }`.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-grip-lines me-2"></i> Scrollbars Personalizados (Webkit)
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Si bien no es estándar, la personalización de la barra de desplazamiento mejora la estética en navegadores basados en Webkit (Chrome, Edge, Safari).</p>
+                        
+                        <h5 class="text-gradient mt-3">Código para `styles.css`:</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>/* 1. Define el ancho de la barra */
+::-webkit-scrollbar {
+  width: 10px; 
+}
+
+/* 2. El 'track' es el camino por donde se mueve la barra */
+::-webkit-scrollbar-track {
+  background: var(--color-dark-indigo);
+  border-radius: 10px;
+}
+
+/* 3. El 'thumb' es la parte que arrastras */
+::-webkit-scrollbar-thumb {
+  background: var(--color-cyan);
+  border-radius: 10px;
+}
+
+/* Opcional: Estado hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-pink);
+}</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Nota Importante:</h5>
+                        <ul class="text-light">
+                            <li>**Compatibilidad:** Funciona en Chrome, Edge, Safari y Opera. Para Firefox, se usan las propiedades `scrollbar-width` y `scrollbar-color`.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header fw-bold border-bottom-0" style="background-color: var(--color-dark-indigo); color: var(--color-cyan);">
+                        <i class="fa-solid fa-wand-magic-sparkles me-2"></i> Transiciones Suaves en `:hover`
+                    </div>
+                    <div class="card-body">
+                        <p class="text-light">Asegúrate de que los cambios de estilo al interactuar (como pasar el ratón) sean suaves y agradables, no abruptos.</p>
+                        
+                        <h5 class="text-gradient mt-3">Ejemplo: Efecto Glow en Botones</h5>
+                        <pre class="p-3 text-white rounded shadow-inner"><code>.btn-glow {
+  /* La clave: Aplica la transición al estado normal */
+  transition: all 0.3s ease-in-out;
+  border: 2px solid var(--color-cyan);
+  box-shadow: 0 0 5px var(--color-cyan);
+}
+
+.btn-glow:hover {
+  /* Los estilos de cambio */
+  background-color: var(--color-cyan);
+  color: var(--color-dark);
+  box-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan);
+  transform: scale(1.05);
+}</code></pre>
+                        
+                        <h5 class="text-gradient mt-3">Regla de Oro:</h5>
+                        <ul class="text-light">
+                            <li>**Ubicación de `transition`**: Siempre en el selector base (`.btn-glow`), no en el `:hover`.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-4 mt-auto text-center">
+        <div class="container">
+            <p class="mb-0">Derechos Reservados &copy; 2023</p>
+            <h5 class="text-gradient mt-2">Nosocial Colective</h5>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+/* IMPORTAR FUENTES (Nunito y Fira Code) */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Nunito:wght@400;600;700;800&display=swap');
+
+/* VARIABLES: Paleta "Futuristic" */
+:root {
+    /* Colores Base */
+    --color-pink: #D93F87;       /* Rosa Fuerte */
+    --color-dark-indigo: #352154; /* Violeta Oscuro (Fondo Navbar) */
+    --color-mid-purple: #44328D;  /* Violeta Medio (Tarjetas) */
+    --color-lavender: #7652AF;    /* Lavanda (Bordes/Detalles) */
+    --color-cyan: #68D8D8;        /* Cyan/Turquesa (Acentos) */
+
+    /* Colores Funcionales */
+    --bg-body: #24163A;          /* Un tono más oscuro que el indigo para profundidad */
+    --text-main: #EDEAF5;        /* Blanco hueso/lila muy pálido para leer */
+    --text-muted: #B3A0CD;       /* Lila grisáceo */
+}
+
+/* ESTILOS GENERALES */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    /* Degradado de Fondo simplificado para mayor estabilidad */
+    background-image: linear-gradient(135deg, var(--color-dark-indigo) 0%, var(--bg-body) 100%);
+    background-attachment: fixed; 
+}
+
+/* CLASE MAESTRA PARA DEGRADADOS DE TEXTO (Títulos y Logos) */
+.text-gradient {
+    /* Define el degradado de color */
+    background: linear-gradient(90deg, var(--color-cyan) 0%, var(--color-pink) 100%);
+    
+    /* Configuración clave para que solo el texto reciba el degradado */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Asegura que el color base del texto sea transparente */
+
+    font-weight: 800;
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+    font-weight: 800;
+}
+
+/* NAVBAR */
+.navbar-custom {
+    background-color: rgba(53, 33, 84, 0.95); /* Semi-transparente */
+    border-bottom: 2px solid var(--color-lavender);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: var(--text-main) !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--color-cyan) !important;
+}
+
+/* TARJETAS FUTURISTAS */
+.card {
+    background-color: var(--color-mid-purple); /* Fondo violeta medio */
+    border: 1px solid var(--color-lavender);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(104, 216, 216, 0.4); /* Resplandor Cyan */
+    border-color: var(--color-cyan);
+}
+
+.card-title {
+    color: var(--color-cyan);
+    font-weight: 700;
+}
+
+/* ÍCONOS */
+.icon-box {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    /* Degradado en el ícono también */
+    background: linear-gradient(180deg, var(--color-pink) 0%, var(--color-lavender) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* BOTONES */
+.btn-custom {
+    background: linear-gradient(90deg, var(--color-pink) 0%, var(--color-lavender) 100%);
+    border: none;
+    color: white;
+    font-weight: 700;
+    border-radius: 50px;
+    padding: 10px 25px;
+    transition: transform 0.2s;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(90deg, var(--color-lavender) 0%, var(--color-pink) 100%); /* Efecto de inversión */
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(217, 63, 135, 0.5); /* Resplandor Rosa */
+}
+
+/* CÓDIGO (Bloques Pre) */
+pre {
+    background-color: #1A1025 !important; /* Casi negro morado */
+    border: 1px solid var(--color-pink);
+    border-radius: 10px;
+    padding: 1rem;
+}
+code {
+    font-family: 'Fira Code', monospace;
+    color: var(--color-cyan);
+    font-size: 0.9rem;
+}
+
+/* FOOTER */
+footer {
+    background-color: #150D22 !important;
+    border-top: 1px solid var(--color-lavender);
+    color: var(--text-muted);
+}
